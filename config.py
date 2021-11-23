@@ -14,6 +14,8 @@ http://localhost/case-studies/
 
 Don't create an index.md file, because the index.html linking to all the other files will be created. As will tags.html.
 '''
+
+
 config ={'root':'/case-studies/',
 
     

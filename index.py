@@ -13,8 +13,8 @@ from config import config
 
 env = Environment(loader=FileSystemLoader('/Library/WebServer/Documents/case-studies/templates/'))
 site_location = '/Library/WebServer/Documents'
-watch_folder = '/Library/WebServer/Documents/case-studies/html'
-output_folder = '/Library/WebServer/Documents/case-studies/html'
+watch_folder = '/Library/WebServer/Documents/case-studies/docs'
+output_folder = '/Library/WebServer/Documents/case-studies/docs'
 basepath = Path( watch_folder )
 unique_tags = []
 POSTS = {}  ## READ IN THE MARKDOWN FILES, PUT THE HTML IN
