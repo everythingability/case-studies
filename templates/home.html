@@ -1,0 +1,79 @@
+{% extends "layout.html" %}
+
+{% block content %}
+   
+    <div class="container px-3 py-3" id="custom-cards">
+    <div class="row row-cols-1 row-cols-lg-3 align-items-stretch g-3 py-3">
+
+   
+ 
+   {% for post in posts %}
+    <div class="col">
+        <!-- COVER -->
+        <div 
+        class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-5 shadow-lg" 
+        style="background-image: url('{{post.thumbnail}}');cursor: pointer;"
+        onclick="location.href='{{ post.sitepath }}';" 
+        >
+
+          <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-2">
+           
+            <!-- TITLE pt-5  mb-4 -->
+            <h2 class="mt-5 display-6 lh-1 fw-bold text-shadow-2 card-title">{{post.title}} </h2>
+
+            <!-- CIRCULAR TAG BUTTONS 
+            <ul class="d-flex list-unstyled mt-auto">
+              <li class="me-auto">
+              <a href="{{ post.sitepath }}">
+                <img src="{{post.thumbnail}}" alt="{{post.slug}}" width="64" height="64" class="rounded-circle border border-white">
+                </a>
+              </li>
+            </ul>-->
+
+      <article class="card">    
+
+        <div class="card__content">
+            <div class="card_text fw-bold text-white text-shadow-2">
+                <p>{{post.summary}}</p>
+            </div>
+        </div>
+      </article>
+
+      </div>
+       </div>
+      </div>
+
+{% endfor %}
+
+
+</div>
+</div>
+
+
+<div id="footer">
+Work about 
+  {%for tag in unique_tags%}{% if not loop.last %}{%if tag%}{{tag}},{%endif%}{%else%}{{tag}}{% endif %}{% endfor %} by Tom Smith.
+</div>
+
+
+  <script>
+  //// SHUFFLE THE CARDS ONCE THEY'RE LOADED
+  $.fn.randomize = function(selector){
+    (selector ? this.find(selector) : this).parent().each(function(){
+        $(this).children(selector).sort(function(){
+            return Math.random() - 0.5;
+        }).detach().appendTo(this);
+    });
+
+    return this;
+};
+
+$(function() {
+  $(".col").randomize();
+});
+
+
+
+  </script>
+
+{% endblock %}

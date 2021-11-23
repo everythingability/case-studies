@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+  <div class="wrapper">
+ 
+   {% for post in posts %}
+
+  <article class="card">
+
+    <a href="{{ post.sitepath }}"><img src="{{post.thumbnail}}" alt="{{post.slug}}" 
+    class="card_image" height="140" /></a>
+
+    <div class="card__content">
+        <h2> <a href="{{ post.sitepath }}">{{post.title}}</a> </h2>
+        <div class="card_text">
+            <p>{{post.summary}}</p>
+            <p> <ul>
+                    {%for tag in post.tags.all%}
+                        <li class="list-inline-item"><a href="/tag/{{tag}}">{{tag}}</a></li>
+                    {%endfor%}
+                </ul>
+            </p>
+        </div>
+    </div>
+  </article>
+    
+{% endfor %}
+
+<ul>
+  {%for tag in unique_tags%}{% if not loop.last %}{%if tag%}{{tag}},{%endif%}{%else%}{{tag}}{% endif %}{% endfor %}
+</ul>
+
+
+</div>
+ 
+
+{% endblock %}

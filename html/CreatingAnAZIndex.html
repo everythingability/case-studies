@@ -1,0 +1,270 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    
+  <meta name="description" content="">
+  <title>Creating an A-Z Index for an Academic Book Using State-of-the-art Natural Language Processing in Python</title>
+
+    
+    <script src="/case-studies/assets/jquery-3.6.0.slim.min.js"></script>
+    <!--meta name="author" content="Tom Smith"-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="/case-studies/assets/bootstrap.min.css" rel="stylesheet">
+    <link href="/case-studies/assets/features.css" rel="stylesheet">
+
+    <link href="/case-studies/assets/style.css" rel="stylesheet">
+
+    <title> </title>
+  </head>
+
+  <body>
+
+      <div id="content">
+          
+<div id="header">
+    <a href="/case-studies/html/" style="color:#fff;text-decoration:none;">
+    Home</a>
+</div>
+
+<div class="post">
+
+  <h1>Creating an A-Z Index for an Academic Book Using State-of-the-art Natural Language Processing in Python</h1>
+
+
+  <p>  
+    <p><center>or<br><i>Data Mining For Beginners</i></center></p>
+
+<p><img src="Flair_Index_-_More_than_3_occurrances_-_16_pages_-_Google_Docs.png" alt="Flair<em>Index</em>-<em>More</em>than<em>3</em>occurrances<em>-</em>16<em>pages</em>-<em>Google</em>Docs" /></p>
+
+<p><a href="https://www.york.ac.uk/english/our-staff/briancummings/">Brian Cummings</a>, having completed his book, Bibliophobia, was looking for tools to help in the process of creating an A-Z index.</p>
+
+<p>Brian had found a number of tools including: </p>
+
+<ul>
+<li><a href="https://www.texyz.com/textract/?gclid=CjwKCAjwhaaKBhBcEiwA8acsHOrYreYyNSSkpmnJDRX_P93Rqv1l86wUeY541GwiwIqDUssIa6f6ShoCdRUQAvD_BwE">TextTract</a></li>
+<li><a href="https://index-manager.net/en/prices/?v=79cba1185463">Index-Manager</a></li>
+<li><a href="https://www.indexres.com/cindex-features">Cindex</a></li>
+</ul>
+
+<p>But all of these tools had certain limitations, or didn't work on a Mac, and also have not insignificant costs. So we set about looking to see if we could replicate some of the functionality of these tools with some Python code. Python is good programming language to use because there are lots of Natural Language Processing (NLP) libraries available for processing text, but more importantly, there are libraries that do <strong>Named Entity Extraction</strong>, such as <a href="https://github.com/flairNLP/flair">Flair</a>. </p>
+
+<h3> Named Entity Extraction</h3>
+
+<p>There are <a href="https://pahulpreet86.github.io/name-entity-recognition-pre-trained-models-review/">A.I or ML tools</a> that can do this sort of thing, find "concepts" and "things" in data, but they can require a lot of technical skill to work with. The Flair module is a lot simpler to work with.</p>
+
+<p>With the Flair module added to your python project, you can give it a chunk of text, and Flair will return a list of things, it has found in that text, such as names of people, places, dates, companies, geo political entities, organisations etc. In short, the sort of thing you would usually put in an A-Z index.</p>
+
+<p>The things Flair can find are:</p>
+
+<ul>
+<li>PERSON People, including fictional</li>
+<li>NORP Nationalities or religious or political groups</li>
+<li>FAC Facilities, buildings, airports, highways, bridges, etc.</li>
+<li>ORGANIZATION Companies, agencies, institutions, etc.</li>
+<li>GPE Countries, cities, states</li>
+<li>LOCATION Non-GPE locations, mountain ranges, bodies of water</li>
+<li>PRODUCT Vehicles, weapons, foods, etc. (Not services)</li>
+<li>EVENT Named hurricanes, battles, wars, sports events, etc.</li>
+<li>WORK OF ART Titles of books, songs, etc.</li>
+<li>LAW Named documents made into laws </li>
+<li>LANGUAGE Any named language</li>
+<li>DATE Absolute or relative dates or periods</li>
+<li>TIME Times smaller than a day</li>
+<li>MONEY Monetary values, including unit</li>
+</ul>
+
+<h3>The First Problem: Pages</h3>
+
+<p>The first problem was that it is quite difficult when reading a Word file where the pages are, in that it depends onto what page size you are printing. So we avoided that headache by saving the book as a 600 page PDF, and used a python module called pdfminer, to get the page data out of the book. </p>
+
+<h3>The Second Problem: Installation</h3>
+
+<p>Working with, and installing extra code modules can be pain, especially so in python, so we used Google Colab notebooks, which are effectively "computers in the cloud" on which we can install modules, upload files and run code.</p>
+
+<p>Here is the Colab notebook we made called <a href="https://colab.research.google.com/drive/1M12Wvceq2AdiQ7q8NpxP6W3Hn_AphViU#scrollTo=hOyN7GKOzOdW">Data Mining For Beginners</a>. You can use it to generate your own list of Entities found in a spreadsheet.</p>
+
+<p>#### <em>A Note About Notebooks</em></p>
+
+<p><em>Colab Notebooks are cool because all the worring or difficult aspects (installing modules and making sure there aren't conflicts with what your system already has etc) are avoided.  The only downside is that the data generated in them is kind of temporary, which means that each time you use the notebook, you have to reinstall all your modules. But, trust me, this is much, much better than trying to install large and complicated modules on your local machine, especially for code that you only want to try out.</em></p>
+
+<h2>How To Use The Notebook</h2>
+
+<p>If you would like to get a lot of Named Entities out of a text file... </p>
+
+<h3>Find or generate a PDF file</h3>
+
+<ol>
+<li><p>You can find a PDF file on <a href="https://www.gutenberg.org/">Project Gutenberg</a> or save a Word/Google Document as PDF or on your desktop Print to PDF. <em>Ideally, before turning any document into a PDF we might remove or clean out any text, such as the Preface, front matter, "Project Gutenberg" info, or appendices etc so that it doesn't taint our data. If we don't do this, we can of course easily remove any entities such as Project Gutenberg from the data gathered.</em></p></li>
+<li><p>Open the <a href="https://colab.research.google.com/drive/1M12Wvceq2AdiQ7q8NpxP6W3Hn_AphViU?usp=sharing">Colab notebook</a>, and using the tools at the left-handside, upload your document and change the filename to match as shown below.</p></li>
+</ol>
+
+<p><img src="Notebook Instructions.png" alt="Notebook Instructions" /></p>
+
+<ol>
+<li>Now, you need to go through each code block and just run it. Some of these take a little while, but it's definitely worth it.</li>
+<li>Once you have run all your code blocks, a Google Sheet will have been created that contains all the entities found in your document. From there it is easy to make Pivot tables that filter the different entity types</li>
+</ol>
+
+<h1>Creating The A-Z Index Document</h1>
+
+<p>Now you have your entity data in a Google Sheet, it is time to change its structure to match a book's A-Z index.  In your sheet use the menu <strong>Tools &gt; Script Editor</strong> and paste the code listed below.</p>
+
+<p>Note: You may need to rename your sheet "Entities" for this to work.</p>
+
+<p>This code generates a Google Document called "Index" that contains your A-Z Index. From there, there is the hard work of making a well crafted index, like Brian did (all 60+ pages of it - first draft).</p>
+
+<p><img src="Indexing__Some_results__-_tom_smith_york_ac_uk_-_University_of_York_Mail.png" alt="Indexing<strong>Some<em>results</strong>-</em>tom<em>smith</em>york<em>ac</em>uk<em>-</em>University<em>of</em>York_Mail" /></p>
+
+<h2>Apps Script Code</h2>
+
+<p>The code is more easily available <a href="apps_script_AZ.js">here</a>.</p>
+
+<p><code>function test_MakeDocument(){</code></p>
+
+<p>​      <code>makeDocument()</code> </p>
+
+<p><code>}</code></p>
+
+<p><code>function makeDocument() {</code></p>
+
+<p>​    <code>let ss = SpreadsheetApp.getActiveSpreadsheet()</code></p>
+
+<p>​    <code>let sheet = ss.getSheetByName("Entities")//Change your sheet to this name, or match yours</code></p>
+
+<p>​    <code>let values = sheet.getDataRange().getValues()</code></p>
+
+<p>​    <code>let headers = values.shift()//pop the first row off</code></p>
+
+<p>​    <code>let data = {}</code></p>
+
+<p>​    <code>let words = []</code></p>
+
+<p>​    <code>values.forEach( function(row){</code></p>
+
+<p>​      <code>//Value Type  Confidence  Page  One</code>                                         </p>
+
+<p>​      <code>let value = row[0] // the first column's data</code> </p>
+
+<p>​      <code>let type = row[1] // the second column's data</code></p>
+
+<p>​      <code>let confidence = row[2]</code></p>
+
+<p>​      <code>let pageNum = row[3]</code></p>
+
+<p>​      <code>if (value in data){</code></p>
+
+<p>​          <code>data[value].count +=1</code></p>
+
+<p>​          <code>data[value].pages.push(pageNum)</code></p>
+
+<p>​      <code>}else{</code></p>
+
+<p>​        <code>data[value] = {count:1, pages:[pageNum]}</code></p>
+
+<p>​        <code>words.push( value )</code></p>
+
+<p>​      <code>}</code></p>
+
+<p>​    <code>})</code></p>
+
+<p>``  </p>
+
+<p><code>let doc = DocumentApp.create("Index")</code></p>
+
+<p><code>let body = doc.getBody()</code></p>
+
+<p><code>let countAbove = 3</code></p>
+
+<p><code>let previousFirstLetter</code></p>
+
+<p><code>words.sort()</code></p>
+
+<p><code>for (w in words){</code></p>
+
+<p>​    <code>let word = words[w]</code></p>
+
+<p>​    <code>let wordObj = data[word]</code></p>
+
+<p>​    <code>let firstLetter = word.charAt(0)</code></p>
+
+<p>​    <code>if (firstLetter != previousFirstLetter){</code></p>
+
+<p>​      <code>body.appendParagraph(firstLetter).setHeading(DocumentApp.ParagraphHeading.HEADING3)</code></p>
+
+<p>​    <code>}</code></p>
+
+<p>​    <code>if (wordObj.count &gt; countAbove){</code></p>
+
+<p>​      <code>let pages = wordObj.pages</code></p>
+
+<p>​      <code>var unique_pages = pages.filter(onlyUnique);</code></p>
+
+<p>​      <code>body.appendParagraph( word + " " + unique_pages )</code></p>
+
+<p>​    <code>}</code></p>
+
+<p>​    <code>previousFirstLetter = firstLetter</code></p>
+
+<p><code>}</code></p>
+
+<p><code>doc.saveAndClose()</code></p>
+
+<p><code>Logger.log( doc.getUrl() )</code></p>
+
+<p>`` </p>
+
+<p><code>}</code></p>
+
+<p><code>function onlyUnique(value, index, self) {</code></p>
+
+<p><code>return self.indexOf(value) === index;</code></p>
+
+<p><code>}</code></p>
+
+<h1>Conclusion</h1>
+
+<p>I had no idea that so much work went into the making of an index. In the end Brian used a combination of the data Flair had generated and some of paid-for tools (on trial mode), which had differing features. But, he was more than happy with the leg-up our code had provided, saving him at least two weeks work.</p>
+
+<hr />
+
+<p>Note: It is entirely possible to build upon the Flair datasets, and add more specialist knowledge, for example, here is, <a href="https://github.com/flairNLP/flair/blob/master/resources/docs/HUNFLAIR.html">HunFlair</a>, a version of Flair that has been adapted for recognising entities in  biomedical texts.</p>
+
+<p>Note: In the past I have used the OpenCalais API from Thomson Reuters, but this has a limit on the number of texts (or pages) you can analyse per day.</p>
+
+  </p>
+
+  <hr>
+
+  <p class="info"><!--2021:-->
+  
+  <a href="/case-studies/html/tags.html#"></a>
+      
+      
+  
+  </p>
+
+</div><!-- end post-->
+
+
+
+
+      </div>
+
+  <hr>
+
+  <div id="footer"><a href="/case-studies/html/">Home</a> | 
+  <a href="/case-studies/html/tags.html">A-Z</a> 
+   </div>
+
+  </body>
+
+
+
+</html>

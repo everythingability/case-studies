@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+
+{% block content %}
+   
+  <div class="post">
+
+    {% for tag in unique_tags %}
+    <br><br>
+    <h2> <a name="{{tag}}"></a>{{tag}}</h2>
+    {%for post in posts%}
+
+    {% if tag in post.tags %}
+        <a href="{{ post.sitepath }}" ><img src="{{post.thumbnail}}" class="tiny"></a>
+        <b> <a href="{{ post.sitepath }}" style="color:#000;text-decoration:none;font-size:1.4em;">{{post.title}}</a></b>
+        <p style="font-size:0.8em;">{{post.summary}}</p>
+        <br><br>
+        {%endif%}
+    {%endfor%}
+    <br>
+    
+   
+
+{% endfor %}
+
+
+</div>
+
+
+
+
+
+{% endblock %}

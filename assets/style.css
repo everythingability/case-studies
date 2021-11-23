@@ -1,0 +1,145 @@
+@font-face {
+    font-family: HelveticaNeue;
+    src: url('/site/assets/HelveticaNeue Light.ttf');
+  }
+
+body{
+    margin: 20px;
+    font-family: HelveticaNeue, serif; 
+    background:#efefef;  
+    background: linear-gradient(45deg, #919090, black);
+    min-height: 100%;
+}
+
+p{
+    font-size:1.4em;  
+    line-height: 1.4em; 
+}
+
+.card-title{
+  color:#fff;
+  text-decoration:none;
+  font-size:30px;
+
+}
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 100px;
+  color:#fff;
+  text-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+  /*box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;*/
+  background-color: transparent;
+  background-clip: border-box;
+  border: 0px;
+  word-break: normal;
+  /*border: 1px solid rgba(0,0,0,.125);
+  border-radius: .25rem;*/
+  font-size: 0.8em;
+}
+
+
+.post{
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    border: 1px solid rgba(0,0,0,.125);
+    border-radius: .55rem;
+    background:#fff;
+    font-size:0.8em;
+    min-height:90vh;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding:50px;
+    width: 900px;
+
+}
+.post img {
+    border: 1px solid black;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+  }
+
+.post p{
+    max-width: 800px;
+    margin-bottom: 40px;
+}
+
+
+.info{
+    font-size: 0.8em;
+}
+
+/* START BLOCKQUOTE STUFF */
+blockquote{
+  font-size: 1.2em;
+  width:70%;
+  margin:50px auto;
+  font-family:Georgia, serif;
+  font-style:italic;
+  color: #555555;
+  padding:1.2em 30px 1.0em 75px;
+  /*border-left:8px solid #78C0A8 ;*/
+  line-height:1.6;
+  position: relative;
+  background:#EDEDED;
+}
+
+blockquote::before{
+  font-family:Georgia, serif;
+  content: "\201C";
+  color:#78C0A8;
+  font-size:4em;
+  position: absolute;
+  left: 10px;
+  top:-10px;
+}
+
+blockquote::after{
+  font-family:Georgia, serif;
+  content: "\201C";
+  color:#78C0A8;
+  font-size:4em;
+  content: '\201D';
+  position: absolute;
+  bottom: 0px;
+  right:30px;
+}
+
+blockquote span{
+  display:block;
+  color:#a6a4a4;
+  font-style: normal;
+  font-weight: bold;
+  margin-top:1em;
+}
+
+blockquote p{
+    height:32px;
+    color:#78C0A8;
+}
+/* END BLOCKQUOTE STUFF */
+  #footer{
+    color: rgb(79, 77, 77);
+    font-size: 0.8em;
+  }
+.post {
+  clear:left;
+}
+.post .tiny{
+  width: 100px;
+  height:100px;
+  max-width: 100px;
+  max-height: 100px;
+  clear: left;
+  float:left;
+  display:block;
+  margin:5px;
+  overflow:hidden;
+}
+
+video{
+  width:100%;
+}

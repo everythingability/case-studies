@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    {%block head%}{%endblock%}
+    
+    <script src="{{config.root}}assets/jquery-3.6.0.slim.min.js"></script>
+    <!--meta name="author" content="Tom Smith"-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="{{config.root}}assets/bootstrap.min.css" rel="stylesheet">
+    <link href="{{config.root}}assets/features.css" rel="stylesheet">
+
+    <link href="{{config.root}}assets/style.css" rel="stylesheet">
+
+    <title>{% block title %} {% endblock %}</title>
+  </head>
+
+  <body>
+
+      <div id="content">
+          {% block content %} {% endblock %}
+      </div>
+
+  <hr>
+
+  <div id="footer"><a href="{{config.root}}html/">Home</a> | 
+  <a href="{{config.root}}html/tags.html">A-Z</a> 
+   </div>
+
+  </body>
+
+
+
+</html>

@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    
+    
+    <script src="/case-studies/assets/jquery-3.6.0.slim.min.js"></script>
+    <!--meta name="author" content="Tom Smith"-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="/case-studies/assets/bootstrap.min.css" rel="stylesheet">
+    <link href="/case-studies/assets/features.css" rel="stylesheet">
+
+    <link href="/case-studies/assets/style.css" rel="stylesheet">
+
+    <title> </title>
+  </head>
+
+  <body>
+
+      <div id="content">
+          
+   
+    <div class="container px-3 py-3" id="custom-cards">
+    <div class="row row-cols-1 row-cols-lg-3 align-items-stretch g-3 py-3">
+
+   
+ 
+   
+    <div class="col">
+        <!-- COVER -->
+        <div 
+        class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-5 shadow-lg" 
+        style="background-image: url('/site/assets/thumbnail.jpg');cursor: pointer;"
+        onclick="location.href='/case-studies/html/CreatingAnAZIndex.html';" 
+        >
+
+          <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-2">
+           
+            <!-- TITLE pt-5  mb-4 -->
+            <h2 class="mt-5 display-6 lh-1 fw-bold text-shadow-2 card-title">Creating an A-Z Index for an Academic Book Using State-of-the-art Natural Language Processing in Python </h2>
+
+            <!-- CIRCULAR TAG BUTTONS 
+            <ul class="d-flex list-unstyled mt-auto">
+              <li class="me-auto">
+              <a href="/case-studies/html/CreatingAnAZIndex.html">
+                <img src="/site/assets/thumbnail.jpg" alt="" width="64" height="64" class="rounded-circle border border-white">
+                </a>
+              </li>
+            </ul>-->
+
+      <article class="card">    
+
+        <div class="card__content">
+            <div class="card_text fw-bold text-white text-shadow-2">
+                <p></p>
+            </div>
+        </div>
+      </article>
+
+      </div>
+       </div>
+      </div>
+
+
+
+
+</div>
+</div>
+
+
+<div id="footer">
+Work about 
+   by Tom Smith.
+</div>
+
+
+  <script>
+  //// SHUFFLE THE CARDS ONCE THEY'RE LOADED
+  $.fn.randomize = function(selector){
+    (selector ? this.find(selector) : this).parent().each(function(){
+        $(this).children(selector).sort(function(){
+            return Math.random() - 0.5;
+        }).detach().appendTo(this);
+    });
+
+    return this;
+};
+
+$(function() {
+  $(".col").randomize();
+});
+
+
+
+  </script>
+
+
+      </div>
+
+  <hr>
+
+  <div id="footer"><a href="/case-studies/html/">Home</a> | 
+  <a href="/case-studies/html/tags.html">A-Z</a> 
+   </div>
+
+  </body>
+
+
+
+</html>
